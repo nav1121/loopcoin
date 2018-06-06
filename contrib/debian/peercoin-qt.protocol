@@ -1,0 +1,11 @@
+[Protocol]
+exec=Loopcoin-qt '%u'
+protocol=Loopcoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

@@ -1,0 +1,7 @@
+usr/local/bin/Loopcoin-qt usr/bin
+share/pixmaps/Loopcoin16.png usr/share/pixmaps
+share/pixmaps/Loopcoin32.png usr/share/pixmaps
+share/pixmaps/Loopcoin128.png usr/share/pixmaps
+share/pixmaps/Loopcoin256.png usr/share/pixmaps
+debian/Loopcoin-qt.desktop usr/share/applications
+debian/Loopcoin-qt.protocol usr/share/kde4/services/

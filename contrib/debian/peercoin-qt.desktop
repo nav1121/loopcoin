@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Peercoin
+Comment=Core wallet for Peercoin P2P Cryptocurrency
+Comment[de]=Offizieller Client für die Kryptowährung Peercoin
+Exec=/usr/bin/Loopcoin-qt %u
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/Loopcoin128.png
+MimeType=x-scheme-handler/Loopcoin;
+Categories=Application;Network;
