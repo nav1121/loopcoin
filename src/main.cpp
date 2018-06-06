@@ -1157,11 +1157,11 @@ int64 GetProofOfWorkReward(unsigned int nBits)
 int64 GetProofOfStakeReward(int64 nCoinAge)
 {
     static int64 nRewardCoinYear = CENT;  // creation amount per coin-year
+	if (nCoinAge==0){
+		int64 nSubsidy = 29700000 * nRewardCoinYear;
+		return nSubsidy;
+	}
     int64 nSubsidy = nCoinAge * 33 / (365 * 33 + 8) * nRewardCoinYear;
-    if (nCoinAge==0){
-	int64 nSubsidy = nCoinAge * 29700000;
-	return nSubsidy;
-}
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRI64d"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
     return nSubsidy;
@@ -1193,8 +1193,8 @@ void static PruneOrphanBlocks()
 }
 
 
-static const int64 nTargetTimespan = 7 * 24 * 60 * 60;  // one week
-static const int64 nTargetSpacingWorkMax = 12 * STAKE_TARGET_SPACING; // 2-hour
+static const int64 nTargetTimespan = 10 * 30;  // one week
+static const int64 nTargetSpacingWorkMax = 2 * STAKE_TARGET_SPACING; // 2-hour
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -3284,14 +3284,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1527675967;
+        block.nTime    = 1345084287;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 2086905635;
+        block.nNonce   = 2179302059u;
 
         if (fTestNet)
         {
-            block.nTime    = 1527675928;
-            block.nNonce   = 389097104;
+            block.nTime    = 1345090000;
+            block.nNonce   = 122894938;
         }
 
 #ifdef TESTING
@@ -3311,7 +3311,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x86c28613b2915b19d39daf356f1315040445c0ffb5fe4b338b41e46c0e42522e"));
+        assert(block.hashMerkleRoot == uint256("0x3c2d8f85fab4d17aac558cc648a1a58acff0de6deb890c29985690052c5993c2"));
         block.print();
         assert(hash == hashGenesisBlock);
         // ppcoin: check genesis block
